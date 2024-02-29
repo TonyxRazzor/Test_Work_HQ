@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from django.shortcuts import render
 
 from data.models import Product, Lesson, TimeInfo, Student
 from .serializers import (ProductSerializer,
@@ -8,6 +9,9 @@ from .serializers import (ProductSerializer,
                           ListSerializer
                           )
 
+
+def index(request):
+    return render(request, 'index.html')
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
